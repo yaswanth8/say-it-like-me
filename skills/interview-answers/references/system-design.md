@@ -1,4 +1,4 @@
-# System design answers
+# System and solution design answers
 
 In a design round the interviewer wants to see how you think, so the answer is a spoken walk-through, not a document. Default length 8-12 sentences; go deeper only when the user asks ("go deeper on the database", "draw it").
 
@@ -11,7 +11,7 @@ In a design round the interviewer wants to see how you think, so the answer is a
 5. **Failure handling**: retries with idempotency keys, dead-letter queue, what happens when a dependency is down.
 6. **One trade-off** I'm consciously making and when I'd revisit it.
 
-Use the candidate's own stack when it fits (for a Java and AWS candidate: Spring Boot services, Kafka, Redis, PostgreSQL or DynamoDB, ECS / EKS / OpenShift), and say so naturally: "This is close to what we run for card alerts..." only when the profile backs it up.
+Use the candidate's own stack from the profile (their language, framework, cloud, database and queue) and say so naturally, for example "This is close to what we run for order alerts...", only when the profile backs it up. For non-engineering roles the same shape works for a process, pipeline or product design: the goal, the parts, where data or work flows, what breaks first, the trade-off.
 
 ## When the user asks for a diagram or detail
 

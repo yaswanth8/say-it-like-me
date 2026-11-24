@@ -2,6 +2,14 @@
 
 Newest first. Each entry is `## <skill> <version>`; `tools/build.py` checks that the entry exists.
 
+## interview-answers 1.1.0
+
+For everyone, not just one stack.
+- **Interview Profile dashboard**: "Set up my interview profile" reads your resume, asks five basic questions in one message (target roles, years per skill, skills to keep modest, screening answers, answer style) and saves them to a private dashboard with its own database. Every chat reads it; you can check or edit it any time.
+- Stories and saved answers live on the dashboard too ("Set up my interview stories", "save this answer"); "update my interview profile: ..." changes a field.
+- Role- and language-neutral: coding answers in your language, examples across roles, a question bank covering Java, Python, JavaScript, .NET, front end, cloud/DevOps, QA, data, ML and product.
+- README: setup table and first prompts.
+
 ## interview-answers 1.0.0
 
 First release.

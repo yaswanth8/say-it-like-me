@@ -1,34 +1,33 @@
 # Voice: what a good answer sounds like
 
-Each pair shows the same question answered two ways. The first is what to avoid: correct, but it reads like documentation and nobody talks like that. The second is the target: what a mid-to-senior engineer says when they know the topic and have used it.
+Each pair shows the same question answered two ways. The first is what to avoid: correct, but it reads like documentation and nobody talks like that. The second is the target: what an experienced person says when they know the topic and have used it.
 
-The project details in the good answers are placeholders for a made-up candidate (a card-payments platform at a bank). In real answers, use the details from the candidate's profile, or none.
+The project details in the good answers belong to made-up candidates (a payments backend, an analytics team). In real answers, use the details from the candidate's profile, or none. The same voice applies to any role: engineering, data, QA, DevOps, product, analysis.
 
 ---
 
-**Q: What's the difference between @Component, @Service and @Repository?**
+**Q: What's the difference between WHERE and HAVING?**
 
 Avoid:
-> Great question! In Spring, there are several stereotype annotations:
-> - **@Component**: A generic stereotype for any Spring-managed component.
-> - **@Service**: A specialization of @Component for the service layer.
-> - **@Repository**: A specialization for the persistence layer.
-> In conclusion, all three register beans, but they differ semantically.
+> Great question! In SQL:
+> - **WHERE**: Filters rows before aggregation.
+> - **HAVING**: Filters groups after aggregation.
+> In conclusion, both filter data but at different stages of query execution.
 
 Target:
-> For scanning they're the same thing: all three register a bean. I use them to show the layer, so @Service on business logic and @Repository on data access. @Repository does one extra thing that actually matters: it translates database exceptions into Spring's DataAccessException, so my service code isn't catching vendor-specific SQL errors.
+> WHERE filters rows before the grouping happens, HAVING filters the groups after. So if I want customers with more than five orders this month, the date goes in WHERE and the count goes in HAVING. I try to push as much as I can into WHERE, because filtering early means the database groups fewer rows.
 
-Why: answer first, no list, and it ends on the one detail that shows real use.
+Why: answer first, no list, and it ends on the practical habit that shows real use.
 
 ---
 
 **Q: How do you handle a downstream service that's slow or down?**
 
 Avoid:
-> There are many strategies, such as timeouts, retries, circuit breakers, bulkheads and fallbacks. You could use Resilience4j, Hystrix or Spring Cloud Circuit Breaker depending on your needs.
+> There are many strategies, such as timeouts, retries, circuit breakers, bulkheads and fallbacks. You could use various libraries depending on your needs.
 
 Target:
-> The first thing I set is a timeout, because without one a slow dependency ties up our threads and takes us down with it. Then I put a Resilience4j circuit breaker around the call, with a small retry and backoff, but only when the call is idempotent. On our notifications service, when the SMS provider got slow we stopped calling it inline and dropped the message on a Kafka topic to retry later, so the customer's request still went through. And I alert on the breaker opening, so we hear about it before customers do.
+> The first thing I set is a timeout, because without one a slow dependency ties up our threads and takes us down with it. Then I put a circuit breaker around the call, with a small retry and backoff, but only when the call is idempotent. On our notifications service, when the SMS provider got slow we stopped calling it inline and queued the message to retry later, so the customer's request still went through. And I alert on the breaker opening, so we hear about it before customers do.
 
 Why: one approach, in the order they'd actually do it, one real example, no menu of libraries.
 
@@ -36,12 +35,21 @@ Follow-up they may ask: How do you make the retried call idempotent?
 
 ---
 
-**Q: HashMap vs ConcurrentHashMap?**
+**Q: What's the difference between a process and a thread?**
 
 Target:
-> HashMap isn't thread-safe; two threads writing at once can lose updates. ConcurrentHashMap is built for that: reads don't lock and writes lock only the bin they touch, so it scales much better than wrapping a HashMap in synchronized. It also doesn't allow null keys or values. I reach for it for in-memory caches or counters shared across request threads, and I use its compute and merge methods so the check-then-update is atomic.
+> A process has its own memory; threads inside a process share it. That makes threads cheaper to start and quicker to talk to each other, but it's also why they need locks, since two threads can change the same data at once. When the work is CPU-heavy and I'd rather not deal with shared state, I split it into separate processes or workers instead.
 
-Why: no story needed for a concept this basic; the last sentence shows practical judgment instead.
+Why: no story needed for a basic concept; the last sentence shows judgment instead.
+
+---
+
+**Q: How do you decide what to put on a dashboard for stakeholders?** (analyst / product)
+
+Target:
+> I start from the decision they make with it, not from the data we have. For our weekly sales review that was one question, are we on track for the month, so the top of the page is that number against target and the two things driving it. Everything else went one click down. If a chart doesn't change what someone does on Monday, I leave it off.
+
+Why: the same voice works outside engineering: a principle, a real example, a sharp rule of thumb.
 
 ---
 
@@ -52,20 +60,20 @@ Avoid:
 > This experience taught me the importance of communication and collaboration.
 
 Target:
-> On our card platform my lead wanted to add a new alerts feature straight into the existing monolith service to hit a release date. I thought it should be its own consumer on Kafka, because the alerts volume spikes at month-end and would slow down the core flows. Instead of arguing in standup I put together a short comparison with the load numbers from the last month-end and a plan that fit the same date. He agreed to the separate service, and at the next month-end the spike hit alerts and the core APIs didn't notice. What I took from it is to bring data and a plan that respects the deadline, not just an opinion.
+> My lead wanted to add a new alerts feature straight into our main service to hit a release date. I thought it should be its own worker, because alert volume spikes at month-end and would slow down the core flows. Instead of arguing in standup, I put together a short comparison with the load from the last month-end and a plan that fit the same date. He agreed to the separate worker, and at the next month-end the spike hit alerts while the core APIs didn't notice. What I took from it is to bring data and a plan that respects the deadline, not just an opinion.
 
 Why: no STAR labels, "I" not "we" for the actions, a concrete result, and a lesson that sounds like a person, not a poster.
 
 ---
 
-**Q: What's your notice period? / Do you need sponsorship?**
+**Q: What's your notice period? / Are you authorized to work here?**
 
 Target:
-> My notice period is 15 days, so I can start about two weeks after an offer.
+> My notice period is two weeks, so I could start about two weeks after an offer.
 
-> Yes, I'm on an H-1B, so it would be a transfer, not a new petition.
+> Yes, I'm authorized to work in the US and don't need sponsorship.
 
-Why: screening answers are one or two sentences, straight from the profile's standard answers.
+Why: screening answers are one or two sentences, taken word for word in meaning from the profile's quick answers.
 
 ---
 

@@ -1,126 +1,130 @@
 # Question bank
 
-For Mock, Drill and JD prep. Pick from the topics the candidate's profile and the job description share, most likely first. These are starting points: rephrase them the way a real interviewer would, and add follow-ups based on the candidate's answers. Add new questions under the right heading as the bank grows.
+For Mock, Drill and JD prep. Use the sections that match the profile's skills and target roles (and the job description, when there is one); skip the rest. These are starting points: rephrase them the way a real interviewer would, and add follow-ups based on the candidate's answers. Add new questions under the right heading as the bank grows, or a new heading for a stack that isn't here.
 
-## Core Java
-- What happens when you put a key in a HashMap? What if two keys have the same hashCode?
-- equals and hashCode contract: what breaks if you override only one?
-- String vs StringBuilder; why is String immutable?
-- Checked vs unchecked exceptions: which do you throw from your own code and why?
-- final, finally, finalize.
-- How does garbage collection work at a high level? Which collector do your services use?
-- Comparable vs Comparator.
-- What changed in Java 8, 11, 17 and 21 that you actually use? (records, sealed classes, pattern matching, virtual threads)
-- Optional: when do you use it and when not?
-- Streams: map vs flatMap; intermediate vs terminal operations; parallel streams, yes or no?
+## Everyone
+- Tell me about yourself.
+- Walk me through your current project and your part in it.
+- Why are you looking for a change? Why this company?
+- The hardest problem you've solved recently.
+- A time you disagreed with your manager or a teammate.
+- A time you missed a deadline or made a mistake.
+- Something you improved without being asked.
+- How you learn a new tool or domain quickly.
+- How you work with people outside your team (business, product, support).
+- How you use AI tools in your work.
+- Where do you see yourself in a few years?
+- Questions about notice period, start date, work authorization, relocation, salary.
+- What questions do you have for us?
 
-## Collections and concurrency
-- ArrayList vs LinkedList; HashMap vs TreeMap vs LinkedHashMap.
-- HashMap vs ConcurrentHashMap vs Collections.synchronizedMap.
-- synchronized vs ReentrantLock vs atomic classes.
-- volatile: what does it guarantee and what doesn't it?
-- ExecutorService, thread pools, and how you size them.
-- CompletableFuture: chaining calls and handling errors.
-- Deadlock: how it happens, how you find it, how you avoid it.
-- Virtual threads in Java 21: when would you use them?
+## Programming fundamentals (any language)
+- Process vs thread; concurrency vs parallelism.
+- What happens when you look up a key in a hash map? Collisions?
+- Mutable vs immutable objects; why immutability helps.
+- Exceptions / error handling: what you throw, catch and log.
+- Memory management and garbage collection at a high level.
+- Composition vs inheritance; an example of each from your code.
+- SOLID or other design principles you actually apply; a design pattern you've used and why.
+- How you write testable code.
 
-## Spring and Spring Boot
-- How does Spring Boot auto-configuration work?
-- Bean scopes; singleton beans and thread safety.
-- Constructor vs field injection.
-- @Transactional: propagation, why it doesn't work on a self-invoked method, rollback rules.
-- How do you handle exceptions globally in a REST API?
-- Profiles and externalized configuration; secrets.
-- Actuator, health checks and metrics.
-- How would you upgrade a large set of services to a new Spring Boot major version?
-- Spring Data JPA: N+1 problem, lazy vs eager, how you fix slow queries.
+## Java and Spring
+- equals/hashCode contract; HashMap vs ConcurrentHashMap.
+- Streams: map vs flatMap; Optional, when and when not.
+- What changed in recent Java versions that you use (records, pattern matching, virtual threads)?
+- synchronized vs locks vs atomics; ExecutorService and CompletableFuture.
+- Spring Boot auto-configuration; bean scopes; constructor injection.
+- @Transactional: propagation, self-invocation, rollback rules.
+- Global exception handling in a REST API; validation.
+- JPA: N+1, lazy vs eager loading, fixing slow queries.
+- Spring Security: filter chain, JWT, OAuth2.
 
-## Spring Security
-- How does the filter chain work?
-- JWT authentication flow; where do you validate the token?
-- OAuth2 / OpenID Connect: authorization code flow, resource server.
-- How do you secure service-to-service calls?
-- CORS and CSRF: when does each matter?
+## Python
+- List vs tuple vs set vs dict; when each.
+- The GIL: when it matters, threading vs multiprocessing vs asyncio.
+- Generators and iterators; decorators; context managers.
+- Mutable default arguments; shallow vs deep copy.
+- Virtual environments and dependency management.
+- Django / Flask / FastAPI: request lifecycle, ORM pitfalls, async endpoints.
+- Testing with pytest: fixtures, mocking.
 
-## Microservices
-- How do you decide service boundaries?
-- Synchronous REST vs asynchronous messaging between services.
-- Circuit breaker, retry, timeout, bulkhead.
-- Distributed transactions: saga, outbox pattern.
-- Service discovery and API gateway.
-- Distributed tracing and correlation IDs.
-- How do you version APIs without breaking consumers?
-- Idempotency for POST endpoints.
+## JavaScript, TypeScript and Node
+- let / const / var; closures; `this`.
+- The event loop: microtasks vs macrotasks; promises vs async/await.
+- == vs ===; null vs undefined.
+- TypeScript: interface vs type, generics, unknown vs any.
+- Node: streams, error handling in async code, scaling with clusters or workers.
 
-## Kafka and messaging
-- Topic, partition, consumer group, offset: how do they fit together?
-- How do you keep ordering? What breaks it?
-- At-least-once vs exactly-once; how you handle duplicates.
-- What happens when a consumer is slow or a message keeps failing? (retry topic, DLQ)
-- Kafka vs RabbitMQ: when would you pick each?
-- Consumer rebalancing and its impact.
+## .NET / C#
+- Value vs reference types; struct vs class.
+- async/await and deadlocks; Task vs ValueTask.
+- Dependency injection lifetimes (singleton, scoped, transient).
+- LINQ deferred execution; Entity Framework tracking and performance.
 
-## Caching (Redis)
-- What do you cache, and how do you invalidate it?
-- Cache-aside vs write-through.
-- TTLs, cache stampede, hot keys.
-- Redis as a distributed lock: risks.
+## Front end (React, Angular, Vue)
+- React: useEffect dependencies and cleanup, keys in lists, useMemo / useCallback, what causes re-renders, state management choices.
+- Angular: dependency injection, observables vs promises, switchMap vs mergeMap, OnPush change detection, lazy loading, interceptors.
+- Accessibility basics; performance (bundle size, lazy loading, images).
+- How you handle loading, errors and empty states for API calls.
+
+## APIs and microservices
+- REST design: resources, status codes, versioning, pagination.
+- Idempotency for POST requests.
+- Sync calls vs messaging between services.
+- Timeouts, retries, circuit breakers.
+- Distributed transactions: saga, outbox.
+- Tracing and correlation IDs; API gateway; service discovery.
+
+## Messaging and caching
+- Kafka / RabbitMQ / SQS: ordering, consumer groups, at-least-once delivery and duplicates, dead-letter queues.
+- When you'd pick each queue.
+- Caching: what to cache, invalidation, cache-aside vs write-through, stampedes and hot keys.
 
 ## Databases and SQL
-- Find the second / Nth highest salary.
-- Latest record per customer (window functions).
-- Joins: inner vs left; find rows with no match.
+- Second / Nth highest value; latest row per group; rows with no match.
+- Joins; GROUP BY with HAVING; window functions.
 - Indexes: when they help, when they hurt, composite index order.
-- Isolation levels; optimistic vs pessimistic locking.
-- How do you troubleshoot a slow query in production?
-- SQL vs NoSQL for a given use case.
+- Transactions and isolation levels; optimistic vs pessimistic locking.
+- Troubleshooting a slow query; SQL vs NoSQL for a given case.
 
-## AWS and cloud
-- Which AWS services have you used and for what?
-- EC2 vs ECS vs EKS vs Lambda: how do you choose?
-- SQS vs SNS vs Kafka (MSK).
-- IAM roles vs users; least privilege for a service.
-- How do you manage secrets? (Secrets Manager, Parameter Store)
-- S3 for large file uploads (pre-signed URLs).
-- High availability across AZs; RDS read replicas and failover.
-- Infrastructure as code: Terraform or CloudFormation in your projects.
+## Cloud and DevOps
+- Which cloud services you've used and for what (AWS, Azure, GCP).
+- VMs vs containers vs serverless: how you choose.
+- IAM and least privilege; managing secrets.
+- High availability across zones; backups and disaster recovery.
+- Docker image best practices; Kubernetes deployments, probes, rollouts and rollbacks.
+- CI/CD pipeline from commit to production; infrastructure as code (Terraform, CloudFormation, Bicep).
+- Monitoring and alerting: what you alert on, an incident you handled.
 
-## Containers, Kubernetes, CI/CD
-- Dockerfile best practices for a Spring Boot app.
-- Kubernetes: Deployment, Service, ConfigMap, Secret; liveness vs readiness probes.
-- How do you roll out without downtime? Rollback?
-- Helm: what problem does it solve?
-- Your CI/CD pipeline from commit to production.
+## Testing and QA
+- Unit vs integration vs end-to-end; the test pyramid.
+- Mocking: when it helps, when it hides bugs.
+- Keeping UI automation (Selenium, Playwright, Cypress) from being flaky.
+- Test planning for a new feature; regression strategy; bug reports that get fixed.
+- API testing and contract testing; performance testing basics.
 
-## Testing
-- Unit vs integration vs contract tests: what do you write for a new endpoint?
-- Mockito: mocking vs spying; when not to mock.
-- Testcontainers.
-- End-to-end UI tests (Playwright / Selenium): how you keep them from being flaky.
+## Data engineering and analytics
+- Batch vs streaming; ETL vs ELT.
+- Data modeling: star schema, slowly changing dimensions.
+- Spark / pandas: partitioning, shuffles, memory issues.
+- Data quality checks; handling late or duplicate data.
+- Picking the right chart; a dashboard that changed a decision.
+- A/B tests: sample size, significance, pitfalls.
 
-## React
-- useEffect: dependency array, cleanup, common bugs.
-- State management: local state vs context vs Redux.
-- Why do lists need keys?
-- useMemo / useCallback: when are they worth it?
-- How do you handle API calls, loading and errors?
-- Rendering performance: what causes re-renders?
+## Machine learning
+- Bias vs variance; overfitting and how you detect it.
+- Choosing a metric for an imbalanced problem.
+- Feature leakage; train / validation / test splits.
+- Deploying and monitoring a model; drift.
+- Working with LLMs: prompting, retrieval, evaluation.
 
-## Angular
-- Components, services, dependency injection.
-- Observables vs promises; switchMap vs mergeMap.
-- Change detection; OnPush.
-- Lazy loading modules / routes.
-- Reactive forms vs template-driven forms.
-- Interceptors for auth tokens and errors.
+## Product, project and business analysis
+- How you gather and prioritize requirements.
+- Writing user stories and acceptance criteria.
+- Saying no to a stakeholder; handling scope creep.
+- Measuring whether a feature worked.
+- Agile ceremonies that worked or didn't on your team.
 
-## JavaScript / TypeScript
-- let / const / var; closures; this.
-- Event loop: microtasks vs macrotasks.
-- == vs ===; null vs undefined.
-- TypeScript: interface vs type; generics; unknown vs any.
-
-## DSA (coding round, Java)
+## DSA (coding round)
 - Two sum; three sum.
 - Valid parentheses.
 - Longest substring without repeating characters (sliding window).
@@ -132,20 +136,7 @@ For Mock, Drill and JD prep. Pick from the topics the candidate's profile and th
 - Number of islands (BFS/DFS).
 - LRU cache.
 - Group anagrams.
-- Kth largest element.
-- Climbing stairs / coin change (DP basics).
+- Coin change / climbing stairs (DP basics).
 
 ## System design
-See `system-design.md` for the list of frequent prompts.
-
-## Behavioral and HR
-- Tell me about yourself.
-- Walk me through your current project's architecture.
-- Hardest bug or production incident you handled.
-- A time you disagreed with your lead or a teammate.
-- A time you missed a deadline or made a mistake.
-- Something you improved without being asked.
-- How you mentor or onboard others.
-- How you use AI coding tools (Copilot, Claude) in your work.
-- Why are you looking for a change? Why this company?
-- Notice period, start date, work authorization, relocation, salary expectations.
+See `system-design.md` for frequent prompts.
