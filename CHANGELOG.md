@@ -2,6 +2,14 @@
 
 Newest first. Each entry is `## <skill> <version>`; `tools/build.py` checks that the entry exists.
 
+## interview-answers 1.2.0
+
+Faster and lighter.
+- The first question in a chat needs two quick rounds before the answer (update check and dashboard lookup together, then the profile) instead of four; later questions need none.
+- Stories are read only for behavioral questions.
+- Voice rules and the example now live in SKILL.md, which is about 40% shorter; `references/voice.md` is gone.
+- The update check gives up after a few seconds when GitHub is slow, so it never holds up an answer.
+
 ## interview-answers 1.1.0
 
 For everyone, not just one stack.

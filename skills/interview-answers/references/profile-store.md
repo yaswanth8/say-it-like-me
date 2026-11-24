@@ -32,7 +32,7 @@ The artifact tool differs by app. On claude.ai the built-in **Artifact** tool ha
 
 ## Recipes
 
-**Find it (each chat, once).** List the user's own artifacts with the query "Interview Profile" and take the one that is theirs. Then read `profile/main` and list `stories`. Don't list `answers` unless the user asks about saved answers.
+**Find it (first question in a chat, once).** List the user's own artifacts with the query "Interview Profile" (in parallel with the update check), take the one that is theirs, then get `profile/main`. List `stories` only when a behavioral question comes up, and `answers` only when the user asks about saved answers.
 
 **Create it (setup).**
 1. Copy `assets/dashboard.html`, replace `{{TITLE}}` with "<First name>'s Interview Profile".

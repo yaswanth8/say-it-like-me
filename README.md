@@ -66,6 +66,10 @@ Say **"use the defaults"** to keep what Claude pre-filled.
 
 Change the style any time: *"longer answers"*, *"no follow-ups"*, *"code in Go"*. Add "always" and it's saved to your profile.
 
+## Fast by design
+
+The first question in a chat takes a few seconds longer while Claude checks for an update and reads your profile (both happen together). Every question after that is answered straight away, with no lookups. The extra guides for coding, design, behavioral answers and setup are read only when that kind of question comes up.
+
 ## What it won't do
 
 - Invent employers, projects or numbers. If a story needs a figure you haven't given, it leaves `[your number]` for you to fill in.
@@ -84,7 +88,7 @@ If GitHub can't be reached, your installed copy is used. To allow updates, keep 
 
 ## Making a change (maintainer)
 
-1. Edit files under `skills/interview-answers/` (add questions to `references/question-bank.md`, tune `references/voice.md`, and so on).
+1. Edit files under `skills/interview-answers/` (add questions to `references/question-bank.md`, tune the voice rules in SKILL.md, and so on).
 2. Bump `skills/interview-answers/VERSION` and the `Version:` line in its SKILL.md to the same value (1.1.0 → 1.1.1 for small fixes, 1.2.0 for new features). If you change `assets/dashboard.html`, also bump `assets/dashboard.version`.
 3. Add a `## interview-answers <version>` entry at the top of `CHANGELOG.md`.
 4. Run `python3 tools/build.py`. It checks the versions match and rebuilds `dist/interview-answers.zip`.
@@ -94,7 +98,7 @@ If GitHub can't be reached, your installed copy is used. To allow updates, keep 
 
 ```
 skills/interview-answers/
-  SKILL.md            the instructions: modes, answer shapes, voice and honesty rules
+  SKILL.md            everything needed to answer: modes, answer shapes, voice and honesty rules
   VERSION             compared with the installed copy by update.sh
   update.sh           once per chat: uses the newest version from this repo
   assets/
@@ -103,13 +107,12 @@ skills/interview-answers/
   references/
     setup.md          the setup questions, stories, profile updates
     profile-store.md  the dashboard's database and how Claude reads and writes it
-    voice.md          good vs bad answers; the style to match
     coding.md         coding answers in any language, plus SQL and frameworks
     behavioral.md     stories, "tell me about yourself", HR and screening answers
     system-design.md  spoken design walk-through and frequent prompts
     question-bank.md  questions by role and stack for mocks and drills
-  evals/evals.json    test prompts (not shipped in the zip)
 dist/interview-answers.zip   what friends install
 docs/dashboard.png           the screenshot above
+evals/evals.json             test prompts for maintainers
 tools/build.py               checks + zip build
 ```
