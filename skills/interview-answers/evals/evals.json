@@ -1,0 +1,9 @@
+{
+  "skill_name": "interview-answers",
+  "evals": [
+    {"id": 1, "prompt": "in today's screening call the interviewer asked me: how do you secure communication between your microservices? what should i say", "expected_output": "3-6 spoken first-person sentences, grounded in the profile (Spring Security, JWT/OAuth, mTLS etc.), no bullets or filler, optional follow-up line", "files": []},
+    {"id": 2, "prompt": "Coding round question: given a list of intervals, merge all overlapping intervals. How would I answer this in the interview?", "expected_output": "One-line approach, Java 17+ solution about 20 lines, key step, time/space complexity, one edge case", "files": []},
+    {"id": 3, "prompt": "Tell me about a time you handled a production issue. How should I answer this one?", "expected_output": "60-second first-person story built from resume facts, no STAR labels, no invented numbers, note on which details to swap, one-line offer to set up stories", "files": []},
+    {"id": 4, "prompt": "they're going to ask about Azure since the JD lists it. how much Azure have you used and what did you do with it - give me my answer", "expected_output": "Honest answer at the basic level the profile allows (App Service, Container Registry, Blob Storage), bridging to deeper AWS experience; no overclaiming", "files": []}
+  ]
+}
