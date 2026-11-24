@@ -24,7 +24,7 @@ Paste a question an interviewer asked (or might ask) and you get the answer to p
 | 4. Create your profile | Start a new chat, attach your resume (PDF or Word, or paste it), and say the setup prompt below. Answer the five short questions Claude asks. | New Claude chat |
 | 5. Check your dashboard | Open the link Claude gives you. Fix anything that's off right on the page, or tell Claude. | Your Interview Profile |
 | 6. Add your stories (recommended) | Say the stories prompt below and tell Claude the real details of 4-6 situations from your work. | Same or new chat |
-| 7. Practise | Paste any interview question. That's it. | Any chat |
+| 7. Practise | Start a chat with **/interview-answers** (or *use interview-answers*), then paste interview questions. | Any chat |
 
 Works on any Claude plan that has skills, including Free.
 
@@ -50,7 +50,15 @@ The questions Claude asks during setup:
 
 Say **"use the defaults"** to keep what Claude pre-filled.
 
+## Turning it on
+
+The skill only works in chats where you call it. Start a prep chat with **/interview-answers** (or type *use interview-answers*, *interview mode* or *say it like me*). From then on, every question in **that chat** is answered in your voice, with no need to repeat it. Say *stop interview mode* to get normal answers again.
+
+Every other chat stays normal: ask "what's a closure?" in an ordinary chat and you get an ordinary explanation, not an interview answer. Setup and dashboard requests ("set up my interview profile", "update my interview profile...", "where's my interview dashboard?") work in any chat.
+
 ## Everyday prompts
+
+In a chat where you've turned it on:
 
 | Say | What you get |
 |---|---|
@@ -65,6 +73,18 @@ Say **"use the defaults"** to keep what Claude pre-filled.
 | *Where's my interview dashboard?* | The link |
 
 Change the style any time: *"longer answers"*, *"no follow-ups"*, *"code in Go"*. Add "always" and it's saved to your profile.
+
+Example chat:
+
+> **You:** /interview-answers
+>
+> **You:** what's the difference between a process and a thread?
+>
+> **Claude:** *(the spoken answer in your voice)*
+>
+> **You:** how would you design a rate limiter?
+>
+> **Claude:** *(still in your voice; no need to call it again)*
 
 ## Fast by design
 

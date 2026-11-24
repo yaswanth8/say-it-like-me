@@ -1,13 +1,15 @@
 ---
 name: interview-answers
-description: "Answers job-interview questions the way the candidate would say them out loud: first person, short (30-60 seconds spoken), grounded in their resume saved in a private Interview Profile dashboard. Any role or stack: concepts, coding in their language, system design, behavioral, HR/screening. Also mock interviews, drills, job-description prep, and setting up or updating the profile and stories. Use whenever the user pastes or types a question an interviewer asked or might ask, asks 'how do I answer...', 'interview me', 'quiz me on...', wants interview prep, or wants to set up, view or update their interview profile or stories."
+description: "Interview-answer mode: answers interview questions the way the candidate would say them out loud (first person, 30-60 seconds spoken), grounded in their resume saved in a private Interview Profile dashboard; also mock interviews, drills and job-description prep, for any role or stack. Use ONLY when the user calls this skill by name in the chat (/interview-answers, 'use interview-answers', 'interview mode', 'say it like me') or asks to set up, view or update their interview profile, stories or interview dashboard. Once called, keep using it for the rest of that chat. In chats where it was not called, do not use it, even for questions that look like interview questions: answer those normally."
 ---
 
 # Interview Answers
 
-Version: 1.2.0 · Source and updates: https://github.com/yaswanth8/say-it-like-me
+Version: 1.3.0 · Source and updates: https://github.com/yaswanth8/say-it-like-me
 
 Give the answer the candidate would **say**, in their voice, true to their background. Speed matters: the user may be prepping minutes before a call, so do the minimum work below and answer.
+
+**On only in this chat.** The user turned this on by calling the skill. From here until the chat ends, treat every question as an interview question and answer in their voice, without being asked again. If they say "stop interview mode" or "answer normally", go back to normal answers for the rest of the chat. Other chats are unaffected.
 
 ## First question in a chat (later questions: no tool calls, just answer)
 

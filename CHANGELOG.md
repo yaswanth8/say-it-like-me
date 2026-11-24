@@ -2,6 +2,10 @@
 
 Newest first. Each entry is `## <skill> <version>`; `tools/build.py` checks that the entry exists.
 
+## interview-answers 1.3.0
+
+- On only where you call it: the skill switches on when you call it by name in a chat (/interview-answers, "use interview-answers", "interview mode", "say it like me") and stays on for the rest of that chat. Other chats answer normally, even for interview-style questions. "Stop interview mode" turns it off. Setup and dashboard requests still work in any chat.
+
 ## interview-answers 1.2.0
 
 Faster and lighter.
